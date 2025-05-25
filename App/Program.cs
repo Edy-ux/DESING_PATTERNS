@@ -3,6 +3,9 @@ using App.src.SOLID.L;
 using Strategy;
 using Strategy.Services;
 
+
+//Strategy Patterns 
+
 Console.WriteLine("Entry with the tax type");
 string? taxType = Console.ReadLine();
 
@@ -12,7 +15,7 @@ if (string.IsNullOrWhiteSpace(taxType))
 }
 
 Console.WriteLine("Enter the amount");
-int? amount = Convert.ToInt32(Console.ReadLine());
+int amount = Convert.ToInt32(Console.ReadLine());
 
 if (amount == null || amount <= 0)
     Console.WriteLine("Value must be a positive integer.");
@@ -27,11 +30,11 @@ ITaxStrategy tax = taxType switch
 };
 
 
-TaxCalculator taxCalculator = new TaxCalculator(tax);
+TaxCalculator taxCalculator = new(tax);
 
-decimal result = taxCalculator.Calculate(amount.Value);
+decimal result = taxCalculator.Calculate(amount);
 
-Console.WriteLine($"Taxa para o {amount} para {taxType} é: {result}");
+Console.WriteLine($"Taxa para {amount}R$ | {taxType} é: {result}");
 
 
 
@@ -39,7 +42,7 @@ Console.WriteLine($"Taxa para o {amount} para {taxType} é: {result}");
 
 //LSP - Liskov Substitution Principles
 
-List<Forma> formas = new List<Forma>
+List<Forma> formas = new()
         {
             new Retangulo { Largura = 5, Altura = 10 },
             new Quadrado { Lado = 5 }

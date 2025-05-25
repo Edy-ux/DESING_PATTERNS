@@ -87,3 +87,37 @@ public class ServicoDeCadastro
 }
 
 ```
+
+## 📌 Agora, podemos usar qualquer repositório:
+
+```csharp
+
+class Program
+{
+    static void Main()
+    {
+        IUsuarioRepositorio repositorioSql = new UsuarioRepositorioSql();
+        IUsuarioRepositorio repositorioMock = new UsuarioRepositorioMock();
+
+        var servico1 = new ServicoDeCadastro(repositorioSql);
+        var servico2 = new ServicoDeCadastro(repositorioMock);
+
+        servico1.CadastrarUsuario("Ana");
+        servico2.CadastrarUsuario("Carlos");
+    }
+}
+
+```
+
+
+## ✅ Por que isso respeita o LSP?
+
+- Qualquer implementação de IUsuarioRepositorio pode substituir outra sem quebrar o código.
+
+- O ServicoDeCadastro não precisa saber se está lidando com SQL, mock, NoSQL, etc.
+
+- Isso promove baixo acoplamento e flexibilidade.
+
+
+a
+

@@ -7,6 +7,6 @@ public class ISS : ITaxStrategy
 {
     public decimal CalculateTax(decimal amount)
     {
-        return amount * 0.3m / 100;
+        return amount * 0.03m;
     }
 }

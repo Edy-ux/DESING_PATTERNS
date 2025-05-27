@@ -21,7 +21,6 @@ if (amount == null || amount <= 0)
     Console.WriteLine("Value must be a positive integer.");
 
 ITaxStrategy tax = taxType switch
-
 {
     "ICMS" => new ICMS(),
     "ISS" => new ISS(),
@@ -29,12 +28,11 @@ ITaxStrategy tax = taxType switch
     _ => throw new ArgumentException("Invalid tax type")
 };
 
+TaxCalculator context = new();
+context.SetStrategy(tax);
+decimal result = context.Calculate(amount);
 
-TaxCalculator taxCalculator = new(tax);
-
-decimal result = taxCalculator.Calculate(amount);
-
-Console.WriteLine($"Taxa para {amount}R$ | {taxType} é: {result}");
+Console.WriteLine($"Taxa para {tax.GetType().Name} com base no valor informado é: {result}R$");
 
 
 

@@ -5,6 +5,6 @@ namespace Strategy.Services;
 
 public class ICMS : ITaxStrategy
 {
-    public decimal CalculateTax(decimal amount) => amount * 0.10m / 100;
+    public decimal CalculateTax(decimal amount) => amount * 0.05m;
 
 }

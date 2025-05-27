@@ -6,6 +6,6 @@ public class IPI : ITaxStrategy
 {
     public decimal CalculateTax(decimal amount)
     {
-        return (amount * 0.5m) / 100;
+        return amount * 0.04m;
     }
 }

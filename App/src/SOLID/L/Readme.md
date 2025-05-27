@@ -31,6 +31,7 @@ public class Usuario
 ```
 
 ## ✅ Implementações que seguem LSP
+ 
 ### 📦 Repositório padrão usando banco de dados
 ```csharp
 
